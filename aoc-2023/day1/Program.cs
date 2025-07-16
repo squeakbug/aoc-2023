@@ -5,13 +5,9 @@
         var totalSum = 0;
         foreach (string line in File.ReadLines(pathToInput))
         {
-            var lst = line.ToList();
-            var indx1 = lst.FindIndex(0, (char c) => { return Char.IsDigit(c); });
-            var indx2 = lst.FindLastIndex(line.Count() - 1, (char c) => { return Char.IsDigit(c); });
-            if (indx2 == -1)
-                indx2 = indx1;
-            totalSum += (int)Char.GetNumericValue(lst[indx1]) * 10
-                + (int)Char.GetNumericValue(lst[indx2]);
+            var digits = line.Where((c) => { return Char.IsDigit(c); })
+                .Select(c => (int)Char.GetNumericValue(c));
+            totalSum += digits.First() * 10 + digits.Last();
         }
         return totalSum;
     }
@@ -90,7 +86,6 @@
 
     public static int Main(string[] args)
     {
-
         if (args.Count() < 1)
         {
             Console.WriteLine("Usage: app <path_to_file>");
