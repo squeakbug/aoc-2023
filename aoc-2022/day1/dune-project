@@ -1,0 +1,18 @@
+(lang dune 3.19)
+
+(name day1)
+
+(generate_opam_files true)
+
+(source
+ (github squeakbug/advent-of-code))
+
+(authors "squeakbug <squeakbug73@outlook.com>")
+
+(license LICENSE)
+
+(package
+ (name day1)
+ (synopsis "ABC")
+ (description "ABCD")
+ (depends ocaml))
